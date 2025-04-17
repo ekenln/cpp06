@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ScalarConverter.hpp                                :+:    :+:            */
+/*   detectorFuncs.hpp                                  :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
+/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/07 10:12:57 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/17 11:23:48 by elleneklund   ########   odam.nl         */
+/*   Created: 2025/04/11 18:00:36 by elleneklund   #+#    #+#                 */
+/*   Updated: 2025/04/17 09:00:17 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include <iomanip>
 
-class ScalarConverter
-{
-	private:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter& old);
-		~ScalarConverter();
-		ScalarConverter&	operator=(const ScalarConverter& S);
+bool	isChar(std::string input);
 
-	public:
-		static void	convert(const std::string& string);
-};
+bool	isInt(std::string input);
+
+bool	isFloat(std::string input);
+
+bool	isDouble(std::string input);
+
+// bool	isPseudoLiteral(std::string input);
