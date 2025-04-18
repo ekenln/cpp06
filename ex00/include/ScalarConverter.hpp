@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 10:12:57 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/17 11:23:48 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/18 09:59:33 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cctype>
 
 class ScalarConverter
 {
