@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Serializer.hpp                                     :+:    :+:            */
+/*   Data.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: elleneklund <elleneklund@student.codam.      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/18 10:18:37 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/18 10:23:16 by elleneklund   ########   odam.nl         */
+/*   Created: 2025/04/21 12:52:51 by elleneklund   #+#    #+#                 */
+/*   Updated: 2025/04/21 13:06:21 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 #include <iostream>
 
-class Serializer
+class Data
 {
 	private:
-		Serializer();
-		Serializer(const Serializer& old);
-		Serializer&	operator=(const Serializer& S);
-		~Seriaizer();
-	
+		std::string	name;
+		int			age;
+
 	public:
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
+		Data();
+		Data(const Data& old);
+		~Data();
+		Data&	operator=(const Data& D);
 };
