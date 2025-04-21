@@ -6,7 +6,7 @@
 /*   By: elleneklund <elleneklund@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/21 13:16:45 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/21 13:25:40 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/21 17:21:44 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int	main(void)
 	uintptr_t converted = Serializer::serialize(&test);
 	std::cout << "og address: " << &test << std::endl;
 	std::cout << "in uintptr_t: " << converted << std::endl;
-	std::cout << "coverted back: " << Serializer::deserialize(converted) << std::endl;
+	std::cout << "converted back: " << Serializer::deserialize(converted) << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: elleneklund <elleneklund@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/18 10:18:37 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/21 13:07:53 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/21 17:24:38 by elleneklund   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Serializer
 		Serializer();
 		Serializer(const Serializer& old);
 		Serializer&	operator=(const Serializer& S);
-		// ~Seriaizer();
+		~Serializer();
 	
 	public:
 		static uintptr_t serialize(Data* ptr);
