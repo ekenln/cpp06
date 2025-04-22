@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 10:12:57 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/21 18:51:33 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/22 11:28:55 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cctype>
+#include <limits.h>
 
 class ScalarConverter
 {
@@ -28,22 +29,22 @@ class ScalarConverter
 		static void	convert(const std::string& string);
 };
 
-template <typename T> void generalConverter(T type)
+template <typename T> void generalConverter(T original)
 {
 	int		integer = 0;
 	bool	impossibleChar = false;
 	bool	impossibleInt = false;
 
-	float floatValue = static_cast<float>(type);
-	double doubleValue = static_cast<double>(type);
-	char character = static_cast<char>(type);
+	float floatValue = static_cast<float>(original);
+	double doubleValue = static_cast<double>(original);
+	char character = static_cast<char>(original);
 	
 	if (!std::isprint(static_cast<unsigned char>(character)))
 		impossibleChar = true;
-	if (type > INT_MAX || type < INT_MIN)
+	if (original > static_cast<T>(INT_MAX) || original < INT_MIN)
 		impossibleInt = true;
 	else
-		integer = static_cast<int>(type);
+		integer = static_cast<int>(original);
 
 	std::cout << "char: ";
 	if (impossibleChar)

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   detectorFuncs.cpp                                  :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/11 17:34:54 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/18 10:14:36 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/22 11:22:23 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ bool	isInt(std::string input)
 	}
 	catch (const std::exception& e)
 	{
-		// std::cerr << "from isint" << '\n';
-		// std::cerr << e.what() << '\n';
 		return false;
 	}
 }
@@ -55,8 +53,6 @@ bool	isFloat(std::string input)
 	}
 	catch (const std::exception& e)
 	{
-		// std::cerr << "from isFloat" << '\n';
-		// std::cerr << e.what() << '\n';
 		return false;
 	}
 }
@@ -75,10 +71,6 @@ bool	isDouble(std::string input)
 	}
 	catch (const std::exception& e)
 	{
-		// std::cerr << e.what() << '\n';
 		return false;
-	}	
+	}
 }
-
-// bool	isPseudoLiteral(std::string input){}
-

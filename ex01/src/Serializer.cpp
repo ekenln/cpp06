@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Serializer.cpp                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/18 10:47:13 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/21 17:25:26 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/22 11:33:26 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 Serializer::Serializer() {}
 
-Serializer::Serializer(const Serializer& old) {}
+Serializer::Serializer(const Serializer& old) {
+	(void) old;
+}
 
 Serializer&	Serializer::operator=(const Serializer& S)
 {
+	(void) S;
 	return (*this);
 }
 

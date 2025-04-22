@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 17:22:33 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/21 18:47:07 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/04/22 11:32:45 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,21 @@
 // 	std::cout << "double: " << doubleValue << "\n";
 // }
 
+
+ScalarConverter::ScalarConverter() {}
+
+ScalarConverter::ScalarConverter(const ScalarConverter& old) {
+	(void)old;
+}
+
+ScalarConverter::~ScalarConverter() {}
+
+ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& S)
+{
+	(void) S;
+	return (*this);
+}
+
 void	ScalarConverter::convert(const std::string& str)
 {
 	if (str.empty())
@@ -100,7 +115,5 @@ void	ScalarConverter::convert(const std::string& str)
 	else if (isFloat(str))
 		::generalConverter<float>(std::stof(str));
 	else
-	{
 		std::cerr << "Not a literal\n";
-	}
 }
