@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 10:12:57 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/22 11:28:55 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/22 16:11:06 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 class ScalarConverter
 {
 	private:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter& old);
-		~ScalarConverter();
-		ScalarConverter&	operator=(const ScalarConverter& S);
+		ScalarConverter() = delete;
+		ScalarConverter(const ScalarConverter& old) = delete;
+		~ScalarConverter() = delete;
+		ScalarConverter&	operator=(const ScalarConverter& S) = delete;
 
 	public:
 		static void	convert(const std::string& string);

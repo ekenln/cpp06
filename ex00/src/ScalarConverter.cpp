@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 17:22:33 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/22 11:32:45 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/04/22 16:11:13 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,19 +87,19 @@
 // }
 
 
-ScalarConverter::ScalarConverter() {}
+// ScalarConverter::ScalarConverter() {}
 
-ScalarConverter::ScalarConverter(const ScalarConverter& old) {
-	(void)old;
-}
+// ScalarConverter::ScalarConverter(const ScalarConverter& old) {
+// 	(void)old;
+// }
 
-ScalarConverter::~ScalarConverter() {}
+// ScalarConverter::~ScalarConverter() {}
 
-ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& S)
-{
-	(void) S;
-	return (*this);
-}
+// ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& S)
+// {
+// 	(void) S;
+// 	return (*this);
+// }
 
 void	ScalarConverter::convert(const std::string& str)
 {
@@ -117,3 +117,80 @@ void	ScalarConverter::convert(const std::string& str)
 	else
 		std::cerr << "Not a literal\n";
 }
+
+
+//ALTERNATIVE SOLUTION WITHOUT TEMPLATES
+// void	ScalarConverter::convert(const std::string& str)
+// {	
+// 	if (str.empty())
+// 	{
+// 		std::cerr << "Empty string\n";
+// 		return ;
+// 	}
+
+// 	bool	impossibleChar = false;
+// 	bool	nonDisplayableChar = false;
+// 	bool	impossibleInt = false;
+
+// 	int		i = 0;
+// 	char	c = 0;
+// 	float	f = 0.0f;
+// 	double	d = 0.0;
+
+// 	if (isInt(str))
+// 	{
+// 		i = std::stoi(str);
+// 		impossibleChar = i < 0 || i > 127;
+// 		c = static_cast<char>(i);
+// 		nonDisplayableChar = (!impossibleChar &&!std::isprint(static_cast<unsigned char>(c)));
+// 		f = static_cast<float>(i);
+// 		d = static_cast<double>(i);
+// 	}
+// 	else if (isChar(str))
+// 	{
+// 		c = str[0];
+// 		i = static_cast<int>(c);
+// 		f = static_cast<float>(c);
+// 		d = static_cast<double>(c);
+// 	}
+// 	else if (isFloat(str))
+// 	{
+// 		f = std::stof(str);
+// 		d = static_cast<double>(f);
+// 		impossibleChar = std::isnan(f) ||std::isinf(f) || f < 0 || f > 127;
+// 		c = static_cast<char>(f);
+// 		nonDisplayableChar = (!impossibleChar && !std::isprint(static_cast<unsigned char>(c)));
+// 		impossibleInt =  std::isnan(f) ||std::isinf(f) || f > static_cast<double>(std::numeric_limits<int>::max()) || 
+//         f < static_cast<double>(std::numeric_limits<int>::min());
+// 		i = static_cast<int>(f);
+// 	}
+// 	else if (isDouble(str))
+// 	{
+// 		d = std::stod(str);
+// 		f = static_cast<float>(d);
+// 		impossibleChar = std::isnan(d) ||std::isinf(d) || d < 0 || d > 127;
+// 		c = static_cast<char>(d);
+// 		nonDisplayableChar = (!impossibleChar && !std::isprint(static_cast<unsigned char>(c)));
+// 		impossibleInt =  std::isnan(d) ||std::isinf(d) || d > static_cast<double>(std::numeric_limits<int>::max()) || 
+//         d < static_cast<double>(std::numeric_limits<int>::min());
+// 		i = static_cast<int>(d);
+// 	}
+
+// 	std::cout << "char: ";
+// 	if (impossibleChar)
+// 		std::cout << "Impossible\n";
+// 	else if (nonDisplayableChar)
+// 		std::cout << "Non displayable\n";
+// 	else
+// 		std::cout << '\'' << c << "\'\n";
+
+// 	std::cout << "int: ";
+// 	if (impossibleInt)
+// 		std::cout << "Impossible\n";
+// 	else
+// 		std::cout << i << "\n";
+
+// 	std::cout << std::fixed << std::setprecision(1);
+// 	std::cout << "float: " << f << "f\n";
+// 	std::cout << "double: " << d << "\n";
+// }
