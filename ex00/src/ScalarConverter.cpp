@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 17:22:33 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/04/22 16:11:13 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/06/27 15:23:40 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,10 @@
 void	ScalarConverter::convert(const std::string& str)
 {
 	if (str.empty())
+	{
+		std::cerr << "Empty string\n";
 		return ;
+	}
 
 	if (isInt(str))
 		::generalConverter<int>(std::stoi(str));
@@ -119,7 +122,7 @@ void	ScalarConverter::convert(const std::string& str)
 }
 
 
-//ALTERNATIVE SOLUTION WITHOUT TEMPLATES
+//ALTERNATIVE SOLUTION WITHOUT TEMPLATE
 // void	ScalarConverter::convert(const std::string& str)
 // {	
 // 	if (str.empty())
