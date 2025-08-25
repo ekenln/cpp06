@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/07 17:22:33 by eeklund       #+#    #+#                 */
-/*   Updated: 2025/06/27 15:23:40 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/08/25 16:03:44 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,28 +101,28 @@
 // 	return (*this);
 // }
 
-void	ScalarConverter::convert(const std::string& str)
-{
-	if (str.empty())
-	{
-		std::cerr << "Empty string\n";
-		return ;
-	}
+// void	ScalarConverter::convert(const std::string& str)
+// {
+// 	if (str.empty())
+// 	{
+// 		std::cerr << "Empty string\n";
+// 		return ;
+// 	}
 
-	if (isInt(str))
-		::generalConverter<int>(std::stoi(str));
-	else if (isChar(str))
-		::generalConverter<char>(str[0]);
-	else if (isDouble(str))
-		::generalConverter<double>(std::stod(str));
-	else if (isFloat(str))
-		::generalConverter<float>(std::stof(str));
-	else
-		std::cerr << "Not a literal\n";
-}
+// 	if (isInt(str))
+// 		::generalConverter<int>(std::stoi(str));
+// 	else if (isChar(str))
+// 		::generalConverter<char>(str[0]);
+// 	else if (isDouble(str))
+// 		::generalConverter<double>(std::stod(str));
+// 	else if (isFloat(str))
+// 		::generalConverter<float>(std::stof(str));
+// 	else
+// 		std::cerr << "Not a literal\n";
+// }
 
 
-//ALTERNATIVE SOLUTION WITHOUT TEMPLATE
+// //ALTERNATIVE SOLUTION WITHOUT TEMPLATE
 // void	ScalarConverter::convert(const std::string& str)
 // {	
 // 	if (str.empty())
@@ -132,7 +132,7 @@ void	ScalarConverter::convert(const std::string& str)
 // 	}
 
 // 	bool	impossibleChar = false;
-// 	bool	nonDisplayableChar = false;
+// 	bool	charNonDisplayable = false;
 // 	bool	impossibleInt = false;
 
 // 	int		i = 0;
@@ -145,7 +145,7 @@ void	ScalarConverter::convert(const std::string& str)
 // 		i = std::stoi(str);
 // 		impossibleChar = i < 0 || i > 127;
 // 		c = static_cast<char>(i);
-// 		nonDisplayableChar = (!impossibleChar &&!std::isprint(static_cast<unsigned char>(c)));
+// 		charNonDisplayable = (!impossibleChar &&!std::isprint(static_cast<unsigned char>(c)));
 // 		f = static_cast<float>(i);
 // 		d = static_cast<double>(i);
 // 	}
@@ -162,7 +162,7 @@ void	ScalarConverter::convert(const std::string& str)
 // 		d = static_cast<double>(f);
 // 		impossibleChar = std::isnan(f) ||std::isinf(f) || f < 0 || f > 127;
 // 		c = static_cast<char>(f);
-// 		nonDisplayableChar = (!impossibleChar && !std::isprint(static_cast<unsigned char>(c)));
+// 		charNonDisplayable = (!impossibleChar && !std::isprint(static_cast<unsigned char>(c)));
 // 		impossibleInt =  std::isnan(f) ||std::isinf(f) || f > static_cast<double>(std::numeric_limits<int>::max()) || 
 //         f < static_cast<double>(std::numeric_limits<int>::min());
 // 		i = static_cast<int>(f);
@@ -173,7 +173,7 @@ void	ScalarConverter::convert(const std::string& str)
 // 		f = static_cast<float>(d);
 // 		impossibleChar = std::isnan(d) ||std::isinf(d) || d < 0 || d > 127;
 // 		c = static_cast<char>(d);
-// 		nonDisplayableChar = (!impossibleChar && !std::isprint(static_cast<unsigned char>(c)));
+// 		charNonDisplayable = (!impossibleChar && !std::isprint(static_cast<unsigned char>(c)));
 // 		impossibleInt =  std::isnan(d) ||std::isinf(d) || d > static_cast<double>(std::numeric_limits<int>::max()) || 
 //         d < static_cast<double>(std::numeric_limits<int>::min());
 // 		i = static_cast<int>(d);
@@ -182,7 +182,7 @@ void	ScalarConverter::convert(const std::string& str)
 // 	std::cout << "char: ";
 // 	if (impossibleChar)
 // 		std::cout << "Impossible\n";
-// 	else if (nonDisplayableChar)
+// 	else if (charNonDisplayable)
 // 		std::cout << "Non displayable\n";
 // 	else
 // 		std::cout << '\'' << c << "\'\n";
@@ -197,3 +197,102 @@ void	ScalarConverter::convert(const std::string& str)
 // 	std::cout << "float: " << f << "f\n";
 // 	std::cout << "double: " << d << "\n";
 // }
+
+
+
+
+
+
+
+
+
+// struct	Values {
+// 	int		i = 0; 
+// 	float	f = 0.0f;
+// 	double	d = 0.0;
+// 	char	c = '\0';
+
+// 	bool	charImpossible = true;
+// 	bool	intImpossible = true;
+// 	bool	doubleValid = true;
+// };
+
+void	printValues(const Values& result)
+{
+	std::cout << "char: ";
+	if (result.charImpossible)
+		std::cout << "Impossible\n";
+	else if (!std::isprint(static_cast<unsigned char>(result.c)))
+		std::cout << "Non displayable\n";
+	else
+		std::cout << '\'' << result.c << "\'\n";
+
+	std::cout << "int: ";
+	if (result.intImpossible)
+		std::cout << "Impossible\n";
+	else
+		std::cout << result.i << "\n";
+
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << "float: " << result.f << "f\n";
+	std::cout << "double: " << result.d << "\n";
+}
+
+bool	isImpossibleChar(double value)
+{
+	return (std::isnan(value) ||std::isinf(value) || value < 0 || value > 127);
+}
+
+bool	isImpossibleInt(double value)
+{
+	return (std::isnan(value) || std::isinf(value) || value > static_cast<double>(std::numeric_limits<int>::max()) || 
+		value < static_cast<double>(std::numeric_limits<int>::min()));
+}
+
+void	ScalarConverter::convert(const std::string& str)
+{
+	Values result;
+	if (str.empty())
+	{
+		std::cerr << "Empty string\n";
+		return ;
+	}
+	try
+	{
+		size_t	pos;
+		result.d = std::stod(str, &pos);
+		if (str.length() != pos)
+		{
+			if (str.length() != pos + 1 || (str.back() != 'f' && str.back() != 'F'))
+				result.doubleValid = false;
+		}
+	}
+	catch (const std::exception& e)
+	{
+		result.doubleValid = false;
+	}
+
+	if (result.doubleValid == true)
+	{
+		result.f = static_cast<float>(result.d);
+		result.charImpossible = isImpossibleChar(result.d);
+		result.c = static_cast<char>(result.d);
+		result.intImpossible =  isImpossibleInt(result.d);
+		result.i = static_cast<int>(result.d);
+	}
+	else if (str.length() == 1)
+	{
+		char c = str[0];
+		result.c = c;
+		result.i = static_cast<int>(c);
+		result.f = static_cast<float>(c);
+		result.d = static_cast<double>(c);
+	}
+	else
+	{
+		std::cerr << "Not a literal\n";
+		return ;
+	}
+	
+	printValues(result);
+}

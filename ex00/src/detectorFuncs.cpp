@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/11 17:34:54 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/22 11:22:23 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/08/25 13:24:49 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,17 @@ bool	isFloat(std::string input)
 
 bool	isDouble(std::string input)
 {
-	if (input == "-inf" || input == "+inf" || input == "nan")
-		return true;
+	// if (input == "-inf" || input == "+inf" || input == "nan")
+	// 	return true;
 	try
 	{
 		size_t	pos;
 		std::stod(input, &pos);
 		if (input.length() != pos)
-			return false;
+		{
+			if (input.length() != pos + 1 || (input.back() != 'f' && input.back() != 'F'))
+				return false;
+		}
 		return true;
 	}
 	catch (const std::exception& e)
