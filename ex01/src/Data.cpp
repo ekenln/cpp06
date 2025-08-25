@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Data.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/21 12:59:03 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/21 13:21:33 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/08/25 16:10:18 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,15 @@ Data&	Data::operator=(const Data& D)
 	this->age = D.age;
 	this->name = D.name;
 	return *this;
+}
+
+
+std::string	Data::getName() const
+{
+	return (name);
+}
+
+int			Data::getAge() const
+{
+	return (age);
 }

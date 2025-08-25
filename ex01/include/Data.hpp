@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Data.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/21 12:52:51 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/21 13:06:21 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/08/25 16:09:40 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,7 @@ class Data
 		Data(const Data& old);
 		~Data();
 		Data&	operator=(const Data& D);
+
+		std::string	getName() const;
+		int			getAge() const;
 };
