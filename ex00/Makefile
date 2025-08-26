@@ -7,7 +7,7 @@ DEPS = $(OBJ:.o=.d)
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRC = $(addprefix $(SRC_DIR)/, main.cpp ScalarConverter.cpp detectorFuncs.cpp)
+SRC = $(addprefix $(SRC_DIR)/, main.cpp ScalarConverter.cpp)
 OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
 
 all: $(NAME)

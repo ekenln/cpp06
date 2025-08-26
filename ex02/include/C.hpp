@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   C.hpp                                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: elleneklund <elleneklund@student.codam.      +#+                     */
+/*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/21 14:06:21 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/04/21 16:10:54 by elleneklund   ########   odam.nl         */
+/*   Updated: 2025/08/26 13:38:50 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,4 @@
 #include <iostream>
 #include "Base.hpp"
 
-class C : public Base
-{
-	public:
-		virtual void type();
-
-};
+class C : public Base {};

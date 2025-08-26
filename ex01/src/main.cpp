@@ -6,7 +6,7 @@
 /*   By: eeklund <eeklund@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/21 13:16:45 by elleneklund   #+#    #+#                 */
-/*   Updated: 2025/08/25 16:13:38 by eeklund       ########   odam.nl         */
+/*   Updated: 2025/08/26 12:52:43 by eeklund       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,4 @@ int	main(void)
 	std::cout << "og address of data: " << &test << std::endl;
 	std::cout << "in uintptr_t: " << converted << std::endl;
 	std::cout << "address converted back from uintptr_t: " << Serializer::deserialize(converted) << std::endl;
-	
 }

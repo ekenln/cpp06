@@ -7,7 +7,7 @@ DEPS = $(OBJ:.o=.d)
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRC = $(addprefix $(SRC_DIR)/, main.cpp Base.cpp A.cpp B.cpp C.cpp)
+SRC = $(addprefix $(SRC_DIR)/, main.cpp Base.cpp)
 OBJ = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
 
 all: $(NAME)
